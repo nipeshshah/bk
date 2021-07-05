@@ -140,6 +140,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BusinessLogic\BLEntryRequests.cs" />
+    <Compile Include="BusinessLogic\BLMaster.cs" />
     <Compile Include="BusinessLogic\BLTemples.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />

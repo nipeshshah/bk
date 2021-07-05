@@ -76,7 +76,15 @@ namespace testprojjsonframework.Controllers
             BusinessLogic.BLEntryRequests entryRequests = new BusinessLogic.BLEntryRequests();
             if (newEntry.formtype == "temple-contactdetails" ||
                 newEntry.formtype == "temple-contactnumber" ||
-                newEntry.formtype == "bhs-address")
+                newEntry.formtype == "bhs-address" || 
+                newEntry.formtype == "bhs-contactnumbers" || 
+                newEntry.formtype == "bhs-contactperson" ||
+                newEntry.formtype == "dhs-address" ||
+                newEntry.formtype == "dhs-contactnumbers" ||
+                newEntry.formtype == "dhs-contactperson" ||
+                newEntry.formtype == "aps-address" ||
+                newEntry.formtype == "aps-contactnumbers" ||
+                newEntry.formtype == "aps-contactperson")
             {
                 entryRequests.AddRequestWith1FieldAndKey(newEntry.formtype, newEntry.key1, newEntry.title);
             }
@@ -87,7 +95,10 @@ namespace testprojjsonframework.Controllers
                 newEntry.formtype == "temple-yaksh" ||
                 newEntry.formtype == "temple-devis" ||
                 newEntry.formtype == "temple-gurumaharaj" ||
-                newEntry.formtype == "temple-charanpagla"
+                newEntry.formtype == "temple-charanpagla" ||
+                newEntry.formtype == "bhs-trust" ||
+                newEntry.formtype == "dhs-trust" ||
+                newEntry.formtype == "aps-trust"
                 )
             {
                 entryRequests.AddRequestWith1FieldAndKey(newEntry.formtype, newEntry.key1, newEntry.text1);
@@ -116,6 +127,16 @@ namespace testprojjsonframework.Controllers
                 entryRequests.AddRequestWith1FieldAndKey(newEntry.formtype, newEntry.key1, newEntry.title);
             }
             return Ok(newEntry);
+        }
+
+        [HttpPost]
+        [Route("api/load/{tag}")]
+        public IHttpActionResult LoadDropdown(string tag)
+        {
+            if(tag == "")
+            {
+                
+            }
         }
 
         //// GET api/values/5
