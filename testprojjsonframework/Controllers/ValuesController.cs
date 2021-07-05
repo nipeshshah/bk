@@ -103,7 +103,7 @@ namespace testprojjsonframework.Controllers
         [HttpPost]
         [Route("api/submitform3")]
         public IHttpActionResult SubmitForm3(RequestForm2 newEntry)
-        {
+        { 
             BusinessLogic.BLEntryRequests entryRequests = new BusinessLogic.BLEntryRequests();
             if (newEntry.formtype == "city-location")
             {
