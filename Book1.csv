@@ -1,0 +1,61 @@
+Property,Pre Required on form,Form Fields,,
+Temple,,Title-Text,,1
+Temple-City,Temple Id,City-DDL,,2
+ContactDetails,Temple Id,Contact Details-Text,,2
+ContactNumber,Temple Id,Contact No-Text,,2
+MoolnayakId,Temple Id,Idol-DDL,,2
+MoolnayakImage,Temple Id,File Upload,,2
+TempleImage,Temple Id,File-Upload,,2
+Trust,Temple Id,Trust-DDL,,2
+,,,,
+Trust,,Title-Text,,1
+Idol,,Title-Text,,3
+,,Type-DDL,,
+City,,Title-Text,,4
+,,State-Text,,
+,,Country-Text,,
+City-Location,City,Latitude-Text,,5
+,,Longitude-Text,,
+Temple-Other Idols,Temple,Idol-DDL,,2
+Temple-Yakshs,Temple,Idol-DDL,,2
+Temple-Devis,Temple,Idol-DDL,,2
+Temple-GuruMaharaj,Temple,Idol-DDL,,2
+Temple-Pagla,Temple,Idol-DDL,,2
+,,,,
+BSH,City,Title-Text,,5
+BSH-Address,City,Address-Text,,6
+,BSH,,,
+BSH-ContactNumbers,City,Contact No-Text,,6
+,BSH,,,
+BSH-EmailAddress,City,Email Address-Text,,6
+,BSH,,,
+BSH-Trust,City,Trust-DDL,,6
+,BSH,,,
+DSH-ContactPerson,City,Contact Person-Text,,6
+,BSH,,,
+,,,,
+DSH,City,Title-Text,,5
+DSH-Address,City,Address-Text,,6
+,DSH,,,
+DSH-ContactNumbers,City,Contact No-Text,,6
+,DSH,,,
+DSH-EmailAddress,City,Email Address-Text,,6
+,DSH,,,
+DSH-Trust,City,Trust-DDL,,6
+,DSH,,,
+DSH-ContactPerson,City,Contact Person-Text,,6
+,DSH,,,
+,,,,
+APSR,City,Title-Text,,5
+APSR-Address,City,Address-Text,,6
+,APSR,,,
+APSR-ContactNumbers,City,Contact No-Text,,6
+,APSR,,,
+APSR-EmailAddress,City,Email Address-Text,,6
+,APSR,,,
+APSR-Trust,City,Trust-DDL,,6
+,APSR,,,
+APSR-ContactPerson,City,Contact Person-Text,,6
+,APSR,,,
+,,,,
+Desc,Temple,Content-Html Editor,,7

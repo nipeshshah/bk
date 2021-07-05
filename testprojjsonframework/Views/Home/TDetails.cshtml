@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "TDetails";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+<div class="jumbotron ">
+    <div class="container">
+        <h1>Main Title</h1>
+        <p class="lead">Brief description less then 50 characters.</p>
+    </div>
+</div>
+<style>
+    .carousel .item {
+        height: 300px;
+    }
+
+    .item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 300px;
+    }
+</style>
+
+
+@section scripts
+{
+    <script>
+      $(document).ready(function () {
+          debugger;
+          services.getService("loadtmpl", function (response) {
+              console.log("Success"); console.log(response)
+          }, function (data)
+          {
+              console.log("Error"); console.log(data)
+          })
+      });
+    </script>
+}
+
+<div class="row">
+
+    <div class="col-md-4">
+        <h2>Moolnayak</h2>
+        <p class=" text-center">
+            <img src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80"
+                 style="max-height:300px; max-width:300px;"
+        </p>
+        <h3>
+            Apart from moolnayak, there are also below scluptures in this temple.
+        </h3>
+        <h5 title="Other tirthankars in the temple.">Tirthankars</h5>
+        <p>
+            <ul>
+                <li>
+                    Munisuvrat Swami
+                </li>
+                <li>
+                    Parswanath
+                </li>
+            </ul>
+        </p>
+        <h5 title="Other Yaksh in the temple.">Yaksh</h5>
+        <p>
+            <ul>
+                <li>
+                    Munisuvrat Swami
+                </li>
+                <li>
+                    Parswanath
+                </li>
+            </ul>
+        </p>
+        <h5 title="Other Devis/Mata in the temple.">Devis/Mata</h5>
+        <p>
+            <ul>
+                <li>
+                    Munisuvrat Swami
+                </li>
+                <li>
+                    Parswanath
+                </li>
+            </ul>
+        </p>
+        <h5 title="Other Guru Maharaj in the temple.">Guru Maharaj</h5>
+        <p>
+            <ul>
+                <li>
+                    Munisuvrat Swami
+                </li>
+                <li>
+                    Parswanath
+                </li>
+            </ul>
+        </p>
+        <h5 title="Charan Pagla in the temple.">Charan Pagla</h5>
+        <p>
+            <ul>
+                <li>
+                    Munisuvrat Swami
+                </li>
+                <li>
+                    Parswanath
+                </li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="col-md-4">
+
+        <h2>Description</h2>
+        <p>
+            Contact Details: <b>ASKJ DASLKDAS, jkashdkj asdkjas, AS DJAKS HD</b><br />
+            Trust: <b>Shree ABC Trust</b><br />
+            City: <b>Ahmedabad</b><br />
+        </p>
+        <div style="border: 1px groove gray;">
+            ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+            is an ideal platform for building RESTful applications on the .NET Framework.<br /><br />
+            <p>
+                Shared by: Loream Ipsum, Submitted on: 5/5/2021
+            </p>
+        </div>
+        <div style="border: 1px groove gray;">
+            ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+            is an ideal platform for building RESTful applications on the .NET Framework.<br /><br />
+            <p>
+                Shared by: Loream Ipsum, Submitted on: 5/5/2021
+            </p>
+        </div>
+        <div style="border: 1px groove gray;">
+            ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+            is an ideal platform for building RESTful applications on the .NET Framework.<br /><br />
+            <p>
+                Shared by: Loream Ipsum, Submitted on: 5/5/2021
+            </p>
+        </div>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Bhojan Shalas</h2>
+        <p>
+            <div>Title</div>
+            <div>Address, Address, Address</div>
+            <div>Mo.: Contact Numbers</div>
+            <div>@@ :Email Address</div>
+            <div>Managed by: Trust</div>
+            <div>ContactPerson: ContactPerson</div>
+        </p>
+        <h2>Dharmshalas</h2>
+        <p>
+            <div>Title</div>
+            <div>Address, Address, Address</div>
+            <div>Mo.: Contact Numbers</div>
+            <div>@@ :Email Address</div>
+            <div>Managed by: Trust</div>
+            <div>ContactPerson: ContactPerson</div>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+@section scripts
+{
+  <script>
+      $(document).ready(function () {
+          debugger;
+          services.getService("searchtps", function (response) {
+              console.log("Success"); console.log(response)
+          }, function (data) { console.log("Error"); console.log(data) })
+      });
+
+      //Search Idol/Mool based on entered characters 
+      //Search city based on entered characters
+      //Search trust based on entered characters
+
+      // on change of Idol, City or Trust change load temples
+      // on click of temple, redirect to temple detail page
+      
+    </script>  
+}
+
+<h2>Search</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        Filters
+        <h5 title="Other tirthankars in the temple.">Tirthankars</h5>
+        @*<select class="form-control">
+            <option>--- Select Idol Type---</option>
+            <option>Any</option>
+            <option>Tirthankar</option>
+            <option>Devi</option>
+            <option>Pagla</option>
+        </select>*@
+        <select class="form-control">
+            <option>--- Select Tirthankar ---</option>
+            <option>Mahavir Swami</option>
+            <option>Parshwanath</option>
+        </select>
+        <select class="form-control">
+            <option>--- Select City ---</option>
+            <option>Ahmedabad, Gujarat</option>
+            <option>Patan, Gujarat</option>
+        </select>
+        <select class="form-control">
+            <option>--- Select Trust ---</option>
+            <option>Jin Sasan Trust, Kadi</option>
+            <option>Patan Jain Mandal, Mumbai</option>
+        </select>
+        <input type="checkbox" value="Has Dharmshala" />Has Dharmshala<br />
+        <input type="checkbox" value="Has Dharmshala" />Has Bhojanshala
+    </div>
+
+
+    <div class="col-md-8">
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Special title treatment
+                </div>
+                <div class="card-body">
+                    <img src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80" class="card-img-top" alt="...">
+                    <h6 style="text-align:center">Shree Ekdanta Ganesh</h6>
+                    <p class="card-text">
+                        City: Ahmedabad,<br />
+                        Trust: Shree Trust,<br />
+                        Dharmshala: Available,<br />
+                        Bhojanshala: Available,<br />
+                    </p>
+                    <div class="text-right">
+                        <a href="#" class="card-link" target="_blank">View Full Details</a>
+                    </div>                    
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <img src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80" class="card-img-top" alt="...">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div style="background-color:lightcyan">
+            <h3>Main Title</h3>
+
+        </div>
+    </div>
+
+</div>

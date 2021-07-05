@@ -1,0 +1,917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="jinsasan2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Apasara">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactNumbers" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrustId" Type="int" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="Bhojanshala">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactNumbers" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrustId" Type="int" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="CityMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="20" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="20" />
+          <Property Name="StateId" Type="int" />
+        </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Descriptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionContent" Type="nvarchar(max)" />
+          <Property Name="UserDisplayName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubmittedOn" Type="datetime" />
+          <Property Name="TempleId" Type="int" />
+        </EntityType>
+        <EntityType Name="Dharmshala">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactNumbers" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrustId" Type="int" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="EntryRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestTime" Type="datetime" />
+          <Property Name="RequestBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="RequestType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Text1" Type="nvarchar(max)" />
+          <Property Name="Text2" Type="nvarchar(max)" />
+          <Property Name="Text3" Type="nvarchar(max)" />
+          <Property Name="Text4" Type="nvarchar(max)" />
+          <Property Name="Text5" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+          <Property Name="Key1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Key2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IdolMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdolTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="IdolType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageType" Type="int" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryId" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TempleIdolMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TempleId" Type="int" />
+          <Property Name="IdolId" Type="int" />
+        </EntityType>
+        <EntityType Name="TempleTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNumber" Type="nchar" MaxLength="10" />
+          <Property Name="ContactDetails" Type="nchar" MaxLength="10" />
+          <Property Name="TrustId" Type="int" />
+          <Property Name="CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="TrustMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Apasara_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="Apasara" Type="Self.Apasara" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apasara">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bhojanshala_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="Bhojanshala" Type="Self.Bhojanshala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bhojanshala">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityMaster_StateMaster">
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CityMaster">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Descriptions_TempleTable">
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="0..1" />
+          <End Role="Descriptions" Type="Self.Descriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempleTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Descriptions">
+              <PropertyRef Name="TempleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dharmshala_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="Dharmshala" Type="Self.Dharmshala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dharmshala">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdolMaster_IdolType">
+          <End Role="IdolType" Type="Self.IdolType" Multiplicity="0..1" />
+          <End Role="IdolMaster" Type="Self.IdolMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdolType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdolMaster">
+              <PropertyRef Name="IdolTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateMaster_CountryMaster">
+          <End Role="CountryMaster" Type="Self.CountryMaster" Multiplicity="0..1" />
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StateMaster">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleIdolMapping_IdolMaster">
+          <End Role="IdolMaster" Type="Self.IdolMaster" Multiplicity="0..1" />
+          <End Role="TempleIdolMapping" Type="Self.TempleIdolMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdolMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleIdolMapping">
+              <PropertyRef Name="IdolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleIdolMapping_TempleTable">
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="0..1" />
+          <End Role="TempleIdolMapping" Type="Self.TempleIdolMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempleTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleIdolMapping">
+              <PropertyRef Name="TempleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleTable_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleTable">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleTable_TrustMaster">
+          <End Role="TrustMaster" Type="Self.TrustMaster" Multiplicity="0..1" />
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrustMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleTable">
+              <PropertyRef Name="TrustId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jinsasan2ModelStoreContainer">
+          <EntitySet Name="Apasara" EntityType="Self.Apasara" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bhojanshala" EntityType="Self.Bhojanshala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Descriptions" EntityType="Self.Descriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dharmshala" EntityType="Self.Dharmshala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntryRequests" EntityType="Self.EntryRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdolMaster" EntityType="Self.IdolMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdolType" EntityType="Self.IdolType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempleIdolMapping" EntityType="Self.TempleIdolMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempleTable" EntityType="Self.TempleTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrustMaster" EntityType="Self.TrustMaster" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Apasara_CityMaster" Association="Self.FK_Apasara_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="Apasara" EntitySet="Apasara" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bhojanshala_CityMaster" Association="Self.FK_Bhojanshala_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="Bhojanshala" EntitySet="Bhojanshala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityMaster_StateMaster" Association="Self.FK_CityMaster_StateMaster">
+            <End Role="StateMaster" EntitySet="StateMaster" />
+            <End Role="CityMaster" EntitySet="CityMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Descriptions_TempleTable" Association="Self.FK_Descriptions_TempleTable">
+            <End Role="TempleTable" EntitySet="TempleTable" />
+            <End Role="Descriptions" EntitySet="Descriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dharmshala_CityMaster" Association="Self.FK_Dharmshala_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="Dharmshala" EntitySet="Dharmshala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdolMaster_IdolType" Association="Self.FK_IdolMaster_IdolType">
+            <End Role="IdolType" EntitySet="IdolType" />
+            <End Role="IdolMaster" EntitySet="IdolMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateMaster_CountryMaster" Association="Self.FK_StateMaster_CountryMaster">
+            <End Role="CountryMaster" EntitySet="CountryMaster" />
+            <End Role="StateMaster" EntitySet="StateMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleIdolMapping_IdolMaster" Association="Self.FK_TempleIdolMapping_IdolMaster">
+            <End Role="IdolMaster" EntitySet="IdolMaster" />
+            <End Role="TempleIdolMapping" EntitySet="TempleIdolMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleIdolMapping_TempleTable" Association="Self.FK_TempleIdolMapping_TempleTable">
+            <End Role="TempleTable" EntitySet="TempleTable" />
+            <End Role="TempleIdolMapping" EntitySet="TempleIdolMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleTable_CityMaster" Association="Self.FK_TempleTable_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="TempleTable" EntitySet="TempleTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleTable_TrustMaster" Association="Self.FK_TempleTable_TrustMaster">
+            <End Role="TrustMaster" EntitySet="TrustMaster" />
+            <End Role="TempleTable" EntitySet="TempleTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="jinsasan2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Apasara">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumbers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrustId" Type="Int32" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <NavigationProperty Name="CityMaster" Relationship="Self.FK_Apasara_CityMaster" FromRole="Apasara" ToRole="CityMaster" />
+        </EntityType>
+        <EntityType Name="Bhojanshala">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumbers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrustId" Type="Int32" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <NavigationProperty Name="CityMaster" Relationship="Self.FK_Bhojanshala_CityMaster" FromRole="Bhojanshala" ToRole="CityMaster" />
+        </EntityType>
+        <EntityType Name="CityMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StateId" Type="Int32" />
+          <NavigationProperty Name="Apasaras" Relationship="Self.FK_Apasara_CityMaster" FromRole="CityMaster" ToRole="Apasara" />
+          <NavigationProperty Name="Bhojanshalas" Relationship="Self.FK_Bhojanshala_CityMaster" FromRole="CityMaster" ToRole="Bhojanshala" />
+          <NavigationProperty Name="StateMaster" Relationship="Self.FK_CityMaster_StateMaster" FromRole="CityMaster" ToRole="StateMaster" />
+          <NavigationProperty Name="Dharmshalas" Relationship="Self.FK_Dharmshala_CityMaster" FromRole="CityMaster" ToRole="Dharmshala" />
+          <NavigationProperty Name="TempleTables" Relationship="Self.FK_TempleTable_CityMaster" FromRole="CityMaster" ToRole="TempleTable" />
+        </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StateMasters" Relationship="Self.FK_StateMaster_CountryMaster" FromRole="CountryMaster" ToRole="StateMaster" />
+        </EntityType>
+        <EntityType Name="Description">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmittedOn" Type="DateTime" Precision="3" />
+          <Property Name="TempleId" Type="Int32" />
+          <NavigationProperty Name="TempleTable" Relationship="Self.FK_Descriptions_TempleTable" FromRole="Descriptions" ToRole="TempleTable" />
+        </EntityType>
+        <EntityType Name="Dharmshala">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumbers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrustId" Type="Int32" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <NavigationProperty Name="CityMaster" Relationship="Self.FK_Dharmshala_CityMaster" FromRole="Dharmshala" ToRole="CityMaster" />
+        </EntityType>
+        <EntityType Name="IdolMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdolTypeId" Type="Int32" />
+          <NavigationProperty Name="IdolType" Relationship="Self.FK_IdolMaster_IdolType" FromRole="IdolMaster" ToRole="IdolType" />
+          <NavigationProperty Name="TempleIdolMappings" Relationship="Self.FK_TempleIdolMapping_IdolMaster" FromRole="IdolMaster" ToRole="TempleIdolMapping" />
+        </EntityType>
+        <EntityType Name="IdolType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IdolMasters" Relationship="Self.FK_IdolMaster_IdolType" FromRole="IdolType" ToRole="IdolMaster" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <NavigationProperty Name="CityMasters" Relationship="Self.FK_CityMaster_StateMaster" FromRole="StateMaster" ToRole="CityMaster" />
+          <NavigationProperty Name="CountryMaster" Relationship="Self.FK_StateMaster_CountryMaster" FromRole="StateMaster" ToRole="CountryMaster" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TempleIdolMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TempleId" Type="Int32" />
+          <Property Name="IdolId" Type="Int32" />
+          <NavigationProperty Name="IdolMaster" Relationship="Self.FK_TempleIdolMapping_IdolMaster" FromRole="TempleIdolMapping" ToRole="IdolMaster" />
+          <NavigationProperty Name="TempleTable" Relationship="Self.FK_TempleIdolMapping_TempleTable" FromRole="TempleIdolMapping" ToRole="TempleTable" />
+        </EntityType>
+        <EntityType Name="TempleTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ContactDetails" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TrustId" Type="Int32" />
+          <Property Name="CityId" Type="Int32" />
+          <NavigationProperty Name="CityMaster" Relationship="Self.FK_TempleTable_CityMaster" FromRole="TempleTable" ToRole="CityMaster" />
+          <NavigationProperty Name="Descriptions" Relationship="Self.FK_Descriptions_TempleTable" FromRole="TempleTable" ToRole="Descriptions" />
+          <NavigationProperty Name="TempleIdolMappings" Relationship="Self.FK_TempleIdolMapping_TempleTable" FromRole="TempleTable" ToRole="TempleIdolMapping" />
+          <NavigationProperty Name="TrustMaster" Relationship="Self.FK_TempleTable_TrustMaster" FromRole="TempleTable" ToRole="TrustMaster" />
+        </EntityType>
+        <EntityType Name="TrustMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TempleTables" Relationship="Self.FK_TempleTable_TrustMaster" FromRole="TrustMaster" ToRole="TempleTable" />
+        </EntityType>
+        <Association Name="FK_Apasara_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="Apasara" Type="Self.Apasara" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apasara">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bhojanshala_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="Bhojanshala" Type="Self.Bhojanshala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bhojanshala">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityMaster_StateMaster">
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CityMaster">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dharmshala_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="Dharmshala" Type="Self.Dharmshala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dharmshala">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleTable_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleTable">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateMaster_CountryMaster">
+          <End Role="CountryMaster" Type="Self.CountryMaster" Multiplicity="0..1" />
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StateMaster">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Descriptions_TempleTable">
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="0..1" />
+          <End Role="Descriptions" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempleTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Descriptions">
+              <PropertyRef Name="TempleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdolMaster_IdolType">
+          <End Role="IdolType" Type="Self.IdolType" Multiplicity="0..1" />
+          <End Role="IdolMaster" Type="Self.IdolMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdolType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdolMaster">
+              <PropertyRef Name="IdolTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleIdolMapping_IdolMaster">
+          <End Role="IdolMaster" Type="Self.IdolMaster" Multiplicity="0..1" />
+          <End Role="TempleIdolMapping" Type="Self.TempleIdolMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdolMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleIdolMapping">
+              <PropertyRef Name="IdolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleIdolMapping_TempleTable">
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="0..1" />
+          <End Role="TempleIdolMapping" Type="Self.TempleIdolMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempleTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleIdolMapping">
+              <PropertyRef Name="TempleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempleTable_TrustMaster">
+          <End Role="TrustMaster" Type="Self.TrustMaster" Multiplicity="0..1" />
+          <End Role="TempleTable" Type="Self.TempleTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrustMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempleTable">
+              <PropertyRef Name="TrustId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jinsasan2db" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apasaras" EntityType="Self.Apasara" />
+          <EntitySet Name="Bhojanshalas" EntityType="Self.Bhojanshala" />
+          <EntitySet Name="CityMasters" EntityType="Self.CityMaster" />
+          <EntitySet Name="CountryMasters" EntityType="Self.CountryMaster" />
+          <EntitySet Name="Descriptions" EntityType="Self.Description" />
+          <EntitySet Name="Dharmshalas" EntityType="Self.Dharmshala" />
+          <EntitySet Name="IdolMasters" EntityType="Self.IdolMaster" />
+          <EntitySet Name="IdolTypes" EntityType="Self.IdolType" />
+          <EntitySet Name="StateMasters" EntityType="Self.StateMaster" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TempleIdolMappings" EntityType="Self.TempleIdolMapping" />
+          <EntitySet Name="TempleTables" EntityType="Self.TempleTable" />
+          <EntitySet Name="TrustMasters" EntityType="Self.TrustMaster" />
+          <AssociationSet Name="FK_Apasara_CityMaster" Association="Self.FK_Apasara_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMasters" />
+            <End Role="Apasara" EntitySet="Apasaras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bhojanshala_CityMaster" Association="Self.FK_Bhojanshala_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMasters" />
+            <End Role="Bhojanshala" EntitySet="Bhojanshalas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityMaster_StateMaster" Association="Self.FK_CityMaster_StateMaster">
+            <End Role="StateMaster" EntitySet="StateMasters" />
+            <End Role="CityMaster" EntitySet="CityMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dharmshala_CityMaster" Association="Self.FK_Dharmshala_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMasters" />
+            <End Role="Dharmshala" EntitySet="Dharmshalas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleTable_CityMaster" Association="Self.FK_TempleTable_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMasters" />
+            <End Role="TempleTable" EntitySet="TempleTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateMaster_CountryMaster" Association="Self.FK_StateMaster_CountryMaster">
+            <End Role="CountryMaster" EntitySet="CountryMasters" />
+            <End Role="StateMaster" EntitySet="StateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Descriptions_TempleTable" Association="Self.FK_Descriptions_TempleTable">
+            <End Role="TempleTable" EntitySet="TempleTables" />
+            <End Role="Descriptions" EntitySet="Descriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdolMaster_IdolType" Association="Self.FK_IdolMaster_IdolType">
+            <End Role="IdolType" EntitySet="IdolTypes" />
+            <End Role="IdolMaster" EntitySet="IdolMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleIdolMapping_IdolMaster" Association="Self.FK_TempleIdolMapping_IdolMaster">
+            <End Role="IdolMaster" EntitySet="IdolMasters" />
+            <End Role="TempleIdolMapping" EntitySet="TempleIdolMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleIdolMapping_TempleTable" Association="Self.FK_TempleIdolMapping_TempleTable">
+            <End Role="TempleTable" EntitySet="TempleTables" />
+            <End Role="TempleIdolMapping" EntitySet="TempleIdolMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempleTable_TrustMaster" Association="Self.FK_TempleTable_TrustMaster">
+            <End Role="TrustMaster" EntitySet="TrustMasters" />
+            <End Role="TempleTable" EntitySet="TempleTables" />
+          </AssociationSet>
+          <EntitySet Name="Images" EntityType="jinsasan2Model.Image" />
+          <EntitySet Name="EntryRequests" EntityType="jinsasan2Model.EntryRequest" />
+        </EntityContainer>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageType" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EntryRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestTime" Type="DateTime" Precision="3" />
+          <Property Name="RequestBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RequestType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Key1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Key2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="jinsasan2ModelStoreContainer" CdmEntityContainer="jinsasan2db">
+          <EntitySetMapping Name="Apasaras">
+            <EntityTypeMapping TypeName="jinsasan2Model.Apasara">
+              <MappingFragment StoreEntitySet="Apasara">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNumbers" ColumnName="ContactNumbers" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="TrustId" ColumnName="TrustId" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bhojanshalas">
+            <EntityTypeMapping TypeName="jinsasan2Model.Bhojanshala">
+              <MappingFragment StoreEntitySet="Bhojanshala">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNumbers" ColumnName="ContactNumbers" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="TrustId" ColumnName="TrustId" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CityMasters">
+            <EntityTypeMapping TypeName="jinsasan2Model.CityMaster">
+              <MappingFragment StoreEntitySet="CityMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryMasters">
+            <EntityTypeMapping TypeName="jinsasan2Model.CountryMaster">
+              <MappingFragment StoreEntitySet="CountryMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Descriptions">
+            <EntityTypeMapping TypeName="jinsasan2Model.Description">
+              <MappingFragment StoreEntitySet="Descriptions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DescriptionContent" ColumnName="DescriptionContent" />
+                <ScalarProperty Name="UserDisplayName" ColumnName="UserDisplayName" />
+                <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+                <ScalarProperty Name="TempleId" ColumnName="TempleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dharmshalas">
+            <EntityTypeMapping TypeName="jinsasan2Model.Dharmshala">
+              <MappingFragment StoreEntitySet="Dharmshala">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNumbers" ColumnName="ContactNumbers" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="TrustId" ColumnName="TrustId" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdolMasters">
+            <EntityTypeMapping TypeName="jinsasan2Model.IdolMaster">
+              <MappingFragment StoreEntitySet="IdolMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdolTypeId" ColumnName="IdolTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdolTypes">
+            <EntityTypeMapping TypeName="jinsasan2Model.IdolType">
+              <MappingFragment StoreEntitySet="IdolType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateMasters">
+            <EntityTypeMapping TypeName="jinsasan2Model.StateMaster">
+              <MappingFragment StoreEntitySet="StateMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="jinsasan2Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempleIdolMappings">
+            <EntityTypeMapping TypeName="jinsasan2Model.TempleIdolMapping">
+              <MappingFragment StoreEntitySet="TempleIdolMapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TempleId" ColumnName="TempleId" />
+                <ScalarProperty Name="IdolId" ColumnName="IdolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempleTables">
+            <EntityTypeMapping TypeName="jinsasan2Model.TempleTable">
+              <MappingFragment StoreEntitySet="TempleTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="ContactDetails" ColumnName="ContactDetails" />
+                <ScalarProperty Name="TrustId" ColumnName="TrustId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrustMasters">
+            <EntityTypeMapping TypeName="jinsasan2Model.TrustMaster">
+              <MappingFragment StoreEntitySet="TrustMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="jinsasan2Model.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ImageType" ColumnName="ImageType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntryRequests">
+            <EntityTypeMapping TypeName="jinsasan2Model.EntryRequest">
+              <MappingFragment StoreEntitySet="EntryRequests">
+                <ScalarProperty Name="Key2" ColumnName="Key2" />
+                <ScalarProperty Name="Key1" ColumnName="Key1" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Text5" ColumnName="Text5" />
+                <ScalarProperty Name="Text4" ColumnName="Text4" />
+                <ScalarProperty Name="Text3" ColumnName="Text3" />
+                <ScalarProperty Name="Text2" ColumnName="Text2" />
+                <ScalarProperty Name="Text1" ColumnName="Text1" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="RequestBy" ColumnName="RequestBy" />
+                <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

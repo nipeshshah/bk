@@ -1,0 +1,72 @@
+[
+  {
+    "temples": [
+      {
+        "Title": "Panchasara",
+        "Moolnayak": "",
+        "Other Bhagwant": [],
+        "Yakshs": [],
+        "Devis": [],
+        "Guru Maharaj": [],
+        "Pagla": [],
+        "Contact Number": "",
+        "Trust": "",
+        "City": "Patan",
+        "Moolnayak Image": "",
+        "Temple Image": ""
+      }
+    ],
+    "cities": [
+      {
+        "Name": "Patan",
+        "Location": "27.00, 120.35",
+        "Bhojanshalas": [
+          {
+            "Title": "",
+            "Address": "",
+            "Contact Numbers": "",
+            "Email Address": "",
+            "Trust": "",
+            "ContactPerson": ""
+          }
+        ],
+        "Dharmshalas": [
+          {
+            "Title": "",
+            "Address": "",
+            "Contact Numbers": "",
+            "Email Address": "",
+            "Trust": "",
+            "ContactPerson": ""
+          }
+        ],
+        "Apasaras": [
+          {
+            "Title": "",
+            "Address": "",
+            "Contact Numbers": "",
+            "Email Address": "",
+            "Trust": "",
+            "ContactPerson": ""
+
+          }
+        ],
+        "Descriptions": [
+          {
+            "Name": "Nipesh Shah",
+            "Content": "Falana falana city"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Future 1": "Important Dates of temnple, important dates of cities, list of kayami tithi, aangi etc",
+    "Future 2": "Bhojanshala menu, timings",
+    "Future 3": "Dharamshala types of rooms, facilities",
+    "Future 4": "Maharaj in Apasara from date till date",
+    "Future 5": "Upcoming events of the temple",
+    "Future 6": "Possible Panchtirthis",
+    "Future 7": "Donation links"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 0,
+    "newentrytype": 1,
+    "value": "Some Trust, Mumbai",
+    "requestdate": "2021-06-24T14:45:08.7194756Z",
+    "status": "Pending"
+  },
+  {
+    "id": 0,
+    "newentrytype": 0,
+    "value": "Shree Shahastrafana Parasnath",
+    "requestdate": "2021-06-24T14:45:45.9170744Z",
+    "status": "Pending"
+  }
+]

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e229457075a44297a1035de7f12f5f4e" Name="Diagram1">
+        <EntityTypeShape EntityType="jinsasan2Model.Apasara" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.Bhojanshala" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.CityMaster" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.CountryMaster" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.Description" Width="1.5" PointX="12.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.Dharmshala" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.IdolMaster" Width="1.5" PointX="10.5" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.IdolType" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.StateMaster" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.TempleIdolMapping" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.TempleTable" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jinsasan2Model.TrustMaster" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="jinsasan2Model.FK_Apasara_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_Bhojanshala_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_CityMaster_StateMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_Dharmshala_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_TempleTable_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_StateMaster_CountryMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_Descriptions_TempleTable" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_IdolMaster_IdolType" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_TempleIdolMapping_IdolMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_TempleIdolMapping_TempleTable" ManuallyRouted="false" />
+        <AssociationConnector Association="jinsasan2Model.FK_TempleTable_TrustMaster" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="jinsasan2Model.Image" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="jinsasan2Model.EntryRequest" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
