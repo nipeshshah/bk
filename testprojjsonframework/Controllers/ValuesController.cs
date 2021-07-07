@@ -1,9 +1,5 @@
 ﻿using JSONFw.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace testprojjsonframework.Controllers
@@ -45,11 +41,11 @@ namespace testprojjsonframework.Controllers
         {
             BusinessLogic.BLEntryRequests entryRequests = new BusinessLogic.BLEntryRequests();
             //System.IO.File.AppendAllText(@"C:\Users\nipesh.shah\source\repos\testprojjsonframework\testprojjsonframework\Temp.csv", "Type," + newEntry.formtype + "\n");
-            if (newEntry.formtype == "temple")
+            if(newEntry.formtype == "temple")
             {
-                entryRequests.AddRequestWith1Field(newEntry.formtype, newEntry.title);                
+                entryRequests.AddRequestWith1Field(newEntry.formtype, newEntry.title);
             }
-            else if (newEntry.formtype == "city")
+            else if(newEntry.formtype == "city")
             {
                 entryRequests.AddRequestWith3Field(newEntry.formtype, newEntry.title, newEntry.text3, newEntry.text2);
             }
@@ -65,7 +61,7 @@ namespace testprojjsonframework.Controllers
             {
                 entryRequests.AddRequestWith2Field(newEntry.formtype, newEntry.title, newEntry.text4);
             }
-            
+
             return Ok(newEntry);
         }
 
@@ -74,10 +70,10 @@ namespace testprojjsonframework.Controllers
         public IHttpActionResult SubmitForm2(RequestForm2 newEntry)
         {
             BusinessLogic.BLEntryRequests entryRequests = new BusinessLogic.BLEntryRequests();
-            if (newEntry.formtype == "temple-contactdetails" ||
+            if(newEntry.formtype == "temple-contactdetails" ||
                 newEntry.formtype == "temple-contactnumber" ||
-                newEntry.formtype == "bhs-address" || 
-                newEntry.formtype == "bhs-contactnumbers" || 
+                newEntry.formtype == "bhs-address" ||
+                newEntry.formtype == "bhs-contactnumbers" ||
                 newEntry.formtype == "bhs-contactperson" ||
                 newEntry.formtype == "dhs-address" ||
                 newEntry.formtype == "dhs-contactnumbers" ||
@@ -88,7 +84,7 @@ namespace testprojjsonframework.Controllers
             {
                 entryRequests.AddRequestWith1FieldAndKey(newEntry.formtype, newEntry.key1, newEntry.title);
             }
-            else if (newEntry.formtype == "temple-city" ||
+            else if(newEntry.formtype == "temple-city" ||
                 newEntry.formtype == "temple-mainidol" ||
                     newEntry.formtype == "temple-trust" ||
                 newEntry.formtype == "temple-otheridol" ||
@@ -108,19 +104,19 @@ namespace testprojjsonframework.Controllers
             {
                 entryRequests.AddRequestWith2FieldAndKey(newEntry.formtype, newEntry.key1, newEntry.text1, newEntry.text2);
             }
-                return Ok(newEntry);
+            return Ok(newEntry);
         }
 
         [HttpPost]
         [Route("api/submitform3")]
         public IHttpActionResult SubmitForm3(RequestForm2 newEntry)
-        { 
+        {
             BusinessLogic.BLEntryRequests entryRequests = new BusinessLogic.BLEntryRequests();
-            if (newEntry.formtype == "city-location")
+            if(newEntry.formtype == "city-location")
             {
                 entryRequests.AddRequestWith2FieldAndKey(newEntry.formtype, newEntry.key1, newEntry.title, newEntry.text1);
             }
-            else if (newEntry.formtype == "city-bhojanshala" ||
+            else if(newEntry.formtype == "city-bhojanshala" ||
                 newEntry.formtype == "city-dharmshala" ||
                 newEntry.formtype == "city-apasara")
             {
@@ -129,14 +125,51 @@ namespace testprojjsonframework.Controllers
             return Ok(newEntry);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/load/{tag}")]
         public IHttpActionResult LoadDropdown(string tag)
         {
-            if(tag == "")
+            List<ResponseDropDownItem> dropdownlist = new List<ResponseDropDownItem>();
+            BusinessLogic.BLMaster master = new BusinessLogic.BLMaster();
+            if(tag == "city")
             {
-                
+                dropdownlist = master.GetCities();
             }
+            else if(tag == "moolnayak")
+            {
+                dropdownlist = master.GetMoolnayaks();
+            }
+            else if(tag == "trust")
+            {
+                dropdownlist = master.GetTrusts();
+            }
+            else if(tag == "yaksh")
+            {
+                dropdownlist = master.GetIdols(3);
+            }
+            else if(tag == "devis")
+            {
+                dropdownlist = master.GetIdols(4);
+            }
+            else if(tag == "gurumaharaj")
+            {
+                dropdownlist = master.GetIdols(5);
+            }
+            else if(tag == "pagla")
+            {
+                dropdownlist = master.GetIdols(5);
+            }
+
+
+            return Ok(dropdownlist);
+        }
+
+        [HttpGet]
+        [Route("api/loadtirth/{templeid}")]
+        public IHttpActionResult LoadTirth(int templeid)
+        {
+            BusinessLogic.BLTemples temples = new BusinessLogic.BLTemples();
+            return Ok(temples.GetTemple(templeid));
         }
 
         //// GET api/values/5

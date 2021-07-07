@@ -22,11 +22,18 @@ namespace testprojjsonframework.Controllers
             return View();
         }
 
-        public ActionResult TDetails()
+        [Route("Home/TDetails/{tirthId}")]
+        public ActionResult TDetails(int? tirthId)
         {
-            ViewBag.Title = "Tirth Details";
-
-            return View();
+            if(tirthId.HasValue)
+            {
+                ViewBag.TirthId = tirthId;
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }            
         }
 
         public ActionResult SubmitRequest()

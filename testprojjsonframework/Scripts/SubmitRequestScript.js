@@ -57,15 +57,15 @@ function ResetForm1() {
 }
 function AddIdol() {
     ResetForm1()
-    var modal = $('#addTempleModel')
-    modal.find('#modal-title').text('Add new Idol')
-    modal.find('#modal-title').attr('formtype', 'idol')
-    modal.find('#listbox-header').text('Select Idol Type')
-    modal.find('#textbox1-header').text('Idol Title')
+    var modal = $('#addTempleModel');
+    modal.find('#modal-title').text('Add new Idol');
+    modal.find('#modal-title').attr('formtype', 'idol');
+    modal.find('#listbox-header').text('Select Idol Type');
+    modal.find('#textbox1-header').text('Idol Title');
     modal.find('#textbox1-control').attr('placeholder', 'Add new Idol title');
-    modal.find('[tag="form1"]').show()
-    modal.find('[tag="form3"]').show()
-    modal.modal('show')
+    modal.find('[tag="form1"]').show();
+    modal.find('[tag="form3"]').show();
+    modal.modal('show');
 }
 
 function SubmitRecord() {
@@ -104,22 +104,24 @@ function ResetForm2() {
 
 //FORM 2
 function AddTempleCity() {
-    ResetForm2()
-    console.log('addTemplePropertyModel')
-    var modal = $('#addTemplePropertyModel')
-    modal.find('#modal-title').text('Update Temple City')
-    modal.find('#modal-title').attr('formtype', 'temple-city')
-    modal.find('#label1-header').text('Temple Name')
-    modal.find('#label1-text').val('Shree Pancha Dera')
-    modal.find('#textbox-header').text('')
-    modal.find('#textbox-control').val('')
-    modal.find('#textbox-control').attr('placeholder', '')
-    modal.find('#listbox-header').text('City ')
-    modal.find('#listbox-control').html('<option>---Select City---</option>')
-    modal.find('#filebox-header').text('')
-    modal.find('#filebox-control').val('')
-    modal.find('[tag="listbox"]').show()
-    modal.modal('show')
+    ResetForm2();
+    console.log('addTemplePropertyModel');
+    var modal = $('#addTemplePropertyModel');
+    modal.find('#modal-title').text('Update Temple City');
+    modal.find('#modal-title').attr('formtype', 'temple-city');
+    modal.find('#label1-header').text('Temple Name');
+    modal.find('#label1-text').val('Shree Pancha Dera');
+    modal.find('#textbox-header').text('');
+    modal.find('#textbox-control').val('');
+    modal.find('#textbox-control').attr('placeholder', '');
+    modal.find('#listbox-header').text('City ');
+    modal.find('#listbox-control').html('<option>---Select City---</option>');
+    modal.find('#filebox-header').text('');
+    modal.find('#filebox-control').val('');
+    //LoadDropdown($('#addCityPropertyModel').find('#listbox-control'), 'city');
+    LoadDropdown($('#addTemplePropertyModel').find('#listbox-control'), 'city');
+    modal.find('[tag="listbox"]').show();
+    modal.modal('show');
 }
 
 function AddContactDetails() {
@@ -158,19 +160,20 @@ function AddContactNumber() {
 
 function AddMoolnayak() {
     ResetForm2()
-    console.log('addTemplePropertyModel')
-    var modal = $('#addTemplePropertyModel')
-    modal.find('#modal-title').text('Update Temple Moolnayak')
-    modal.find('#modal-title').attr('formtype', 'temple-mainidol')
-    modal.find('#label1-header').text('Temple Name')
-    modal.find('#label1-text').val('Shree Pancha Dera')
-    modal.find('#textbox-header').text('')
-    modal.find('#textbox-control').attr('placeholder', '')
-    modal.find('#listbox-header').text('Moolnayak')
-    modal.find('#listbox-control').html('<option>---Select Moolnayak---</option>')
-    modal.find('#filebox-header').text('')
-    modal.find('[tag="listbox"]').show()
-    modal.modal('show')
+    console.log('addTemplePropertyModel');
+    var modal = $('#addTemplePropertyModel');
+    modal.find('#modal-title').text('Update Temple Moolnayak');
+    modal.find('#modal-title').attr('formtype', 'temple-mainidol');
+    modal.find('#label1-header').text('Temple Name');
+    modal.find('#label1-text').val('Shree Pancha Dera');
+    modal.find('#textbox-header').text('');
+    modal.find('#textbox-control').attr('placeholder', '');
+    modal.find('#listbox-header').text('Moolnayak');
+    modal.find('#listbox-control').html('<option>---Select Moolnayak---</option>');
+    LoadDropdown(modal.find('#listbox-control'), "moolnayak");
+    modal.find('#filebox-header').text('');
+    modal.find('[tag="listbox"]').show();
+    modal.modal('show');
 }
 
 function AddMoolnayakImage() {
@@ -208,20 +211,21 @@ function AddTempleImage() {
 }
 
 function AddTempleTrust() {
-    ResetForm2()
-    console.log('addTemplePropertyModel')
-    var modal = $('#addTemplePropertyModel')
-    modal.find('#modal-title').text('Update Temple Trust')
-    modal.find('#modal-title').attr('formtype', 'temple-trust')
-    modal.find('#label1-header').text('Temple Name')
-    modal.find('#label1-text').val('Shree Pancha Dera')
-    modal.find('#textbox-header').text('')
-    modal.find('#textbox-control').attr('placeholder', '')
-    modal.find('#listbox-header').text('Trust')
-    modal.find('#listbox-control').html('<option>---Select Trust---</option>')
-    modal.find('#filebox-header').text('')
-    modal.find('[tag="listbox"]').show()
-    modal.modal('show')
+    ResetForm2();
+    console.log('addTemplePropertyModel');
+    var modal = $('#addTemplePropertyModel');
+    modal.find('#modal-title').text('Update Temple Trust');
+    modal.find('#modal-title').attr('formtype', 'temple-trust');
+    modal.find('#label1-header').text('Temple Name');
+    modal.find('#label1-text').val('Shree Pancha Dera');
+    modal.find('#textbox-header').text('');
+    modal.find('#textbox-control').attr('placeholder', '');
+    modal.find('#listbox-header').text('Trust');
+    modal.find('#listbox-control').html('<option>---Select Trust---</option>');
+    LoadDropdown(modal.find('#listbox-control'), 'trust');
+    modal.find('#filebox-header').text('');    
+    modal.find('[tag="listbox"]').show();
+    modal.modal('show');
 }
 
 function AddTempleOtherIdols() {
@@ -236,6 +240,7 @@ function AddTempleOtherIdols() {
     modal.find('#textbox-control').attr('placeholder', '')
     modal.find('#listbox-header').text('Other Idol')
     modal.find('#listbox-control').html('<option>---Select Other Idol---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'moolnayak');
     modal.find('#filebox-header').text('')
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
@@ -253,6 +258,7 @@ function AddTempleYaksh() {
     modal.find('#textbox-control').attr('placeholder', '')
     modal.find('#listbox-header').text('Yaksh')
     modal.find('#listbox-control').html('<option>---Select Yaksh---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'yaksh');
     modal.find('#filebox-header').text('')
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
@@ -270,6 +276,7 @@ function AddTempleDevis() {
     modal.find('#textbox-control').attr('placeholder', '')
     modal.find('#listbox-header').text('Devis')
     modal.find('#listbox-control').html('<option>---Select Devis---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'devis');
     modal.find('#filebox-header').text('')
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
@@ -287,6 +294,7 @@ function AddTempleGuruMaharaj() {
     modal.find('#textbox-control').attr('placeholder', '')
     modal.find('#listbox-header').text('GuruMaharaj')
     modal.find('#listbox-control').html('<option>---Select GuruMaharaj---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'gurumaharaj');
     modal.find('#filebox-header').text('')
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
@@ -304,6 +312,7 @@ function AddTemplePagla() {
     modal.find('#textbox-control').attr('placeholder', '')
     modal.find('#listbox-header').text('Charan / Pagla')
     modal.find('#listbox-control').html('<option>---Select Charan/Pagla---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'pagla');
     modal.find('#filebox-header').text('')
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
@@ -445,17 +454,18 @@ function AddBhsContactNumbers() {
 }
 
 function AddBhsTrust() {
-    ResetForm2()
-    console.log('addTemplePropertyModel')
-    var modal = $('#addTemplePropertyModel')
-    modal.find('#modal-title').text('Add Bhs Trust')
-    modal.find('#modal-title').attr('formtype', 'bhs-trust')
-    modal.find('#label1-header').text('BHS Title')
-    modal.find('#label1-text').val('Shree PDT Bhnly')
-    modal.find('#listbox-header').text('Bhs Trust')
-    modal.find('#listbox-control').html('<option>---Trust---</option>')
-    modal.find('[tag="listbox"]').show()
-    modal.modal('show')
+    ResetForm2();
+    console.log('addTemplePropertyModel');
+    var modal = $('#addTemplePropertyModel');
+    modal.find('#modal-title').text('Add Bhs Trust');
+    modal.find('#modal-title').attr('formtype', 'bhs-trust');
+    modal.find('#label1-header').text('BHS Title');
+    modal.find('#label1-text').val('Shree PDT Bhnly');
+    modal.find('#listbox-header').text('Bhs Trust');
+    modal.find('#listbox-control').html('<option>---Trust---</option>');
+    LoadDropdown(modal.find('#listbox-control'), 'trust');
+    modal.find('[tag="listbox"]').show();
+    modal.modal('show');
 }
 
 function AddBhsContactPerson() {
@@ -510,6 +520,7 @@ function AddDhsTrust() {
     modal.find('#label1-text').val('Shree PDT Dhnly')
     modal.find('#listbox-header').text('Dhs Trust')
     modal.find('#listbox-control').html('<option>---Trust---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'trust');
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
 }
@@ -566,6 +577,7 @@ function AddAPSTrust() {
     modal.find('#label1-text').val('Shree PDT APS')
     modal.find('#listbox-header').text('APS Trust')
     modal.find('#listbox-control').html('<option>---Trust---</option>')
+    LoadDropdown(modal.find('#listbox-control'), 'trust');
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
 }
@@ -584,6 +596,14 @@ function AddAPSContactPerson() {
     modal.modal('show')
 }
 
-function LoadCities() {
-    
+function LoadDropdown(control, tag) {
+    debugger;
+    services.getService("load/" + tag, function (response) {
+        $(control);
+        var html = "";
+        response.forEach(function (item, index) {
+            html += "<option value=" + item.value + ">" + item.title + "</option>";
+        });
+        $(control).html(html);
+    });       
 }

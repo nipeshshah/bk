@@ -3,6 +3,7 @@ using JSONFw.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
 
 namespace testprojjsonframework.BusinessLogic
 {
@@ -129,6 +130,11 @@ namespace testprojjsonframework.BusinessLogic
                 });
             }
             return items;
+        }
+
+        internal TempleTable GetTemple(int templeid)
+        {
+            return db.TempleTables.Where(t => t.Id == templeid).FirstOrDefault();
         }
     }
 }

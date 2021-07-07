@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
+    <script src="~/Scripts/SubmitRequestScript.js?t=3"></script>
+
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
     <style>
@@ -21,7 +23,9 @@
     <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                Jinsasan
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,13 +35,16 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" onclick="AddTemple()" href="#">Submit Temple</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" onclick="AddCity()" href="#">Submit City</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" onclick="AddTrust()" href="#">Submit Trust</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="AddIdol()" href="#">Submit Idol</a>
                     </li>
                 </ul>
             </div>
@@ -57,5 +64,170 @@
     <script src="~/Scripts/Services.js"></script>
 
     @RenderSection("scripts", required: false)
+
+
+    <div class="modal fade" id="addTempleModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group" tag="form3" style="display:none">
+                            <label for="temple-title" id="listbox-header" class="col-form-label">Idol Type:</label>
+                            <select class="form-control" id="listbox-control">
+                                <option>---Select Idol Type---</option>
+                                <option>Tirthankar</option>
+                                <option>Devi</option>
+                                <option>Yaksh</option>
+                                <option>Dev</option>
+                            </select>
+                        </div>
+                        <div class="form-group" tag="form1">
+                            <label for="temple-title" id="textbox1-header" class="col-form-label"></label>
+                            <input type="text" placeholder="" class="form-control" id="textbox1-control">
+                        </div>
+                        <div class="form-group" tag="form4" style="display:none">
+                            <label for="temple-title" id="textbox2-header" class="col-form-label">State:</label>
+                            <input type="text" placeholder="" class="form-control" id="textbox2-control">
+                        </div>
+                        <div class="form-group" tag="form4" style="display:none">
+                            <label for="temple-title" id="textbox3-header" class="col-form-label">Country:</label>
+                            <input type="text" placeholder="" class="form-control" id="textbox3-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitRecord()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addTemplePropertyModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="temple-title" id="label1-header" class="col-form-label"></label>
+                            <input type="text" readonly="readonly" class="form-control" id="label1-text">
+                        </div>
+                        <div class="form-group" tag="textbox" style="display:none">
+                            <label for="temple-title" id="textbox-header" class="col-form-label"></label>
+                            <input type="text" placeholder="" class="form-control" id="textbox-control">
+                        </div>
+                        <div class="form-group" tag="listbox" style="display:none">
+                            <label for="temple-title" id="listbox-header" class="col-form-label"></label>
+                            <select class="form-control" id="listbox-control">
+                                <option>---Select---</option>
+                            </select>
+                        </div>
+                        <div class="form-group" tag="filebox" style="display:none">
+                            <label for="temple-title" id="filebox-header" class="col-form-label"></label>
+                            <input type="file" class="form-control" id="filebox-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitForm2()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addCityPropertyModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="input-display-title" id="label1-header" class="col-form-label"></label>
+                            <input type="text" readonly="readonly" class="form-control" id="label1-text">
+                        </div>
+                        @*<div class="form-group" tag="titlebox" style="display:none">
+                                <label for="input-display-title" id="textbox1-header" class="col-form-label">City:</label>
+                                <input type="text" class="form-control" id="textbox1-control">
+                            </div>*@
+                        <div class="form-group" tag="value1box" style="display:none">
+                            <label for="input-text-value1" id="textbox1-header" class="col-form-label">Latitude:</label>
+                            <input type="text" placeholder="Add new temple title" class="form-control" id="textbox1-control">
+                        </div>
+                        <div class="form-group" tag="value2box" style="display:none">
+                            <label for="input-text-value2" id="textbox2-header" class="col-form-label">Longitude:</label>
+                            <input type="text" placeholder="Add new temple title" class="form-control" id="textbox2-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitForm3()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addBhsPropertyModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Add new temple</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="temple-title" id="input-title" class="col-form-label">Temple:</label>
+                            <input type="text" readonly="readonly" class="form-control" id="input-display-title">
+                        </div>
+                        <div class="form-group">
+                            <label for="temple-title" id="input-title" class="col-form-label">Temple:</label>
+                            <input type="text" readonly="readonly" class="form-control" id="input-display-title">
+                        </div>
+                        <div class="form-group" tag="textbox" style="display:none">
+                            <label for="temple-title" id="input-title" class="col-form-label">Temple Title:</label>
+                            <input type="text" placeholder="Add new temple title" class="form-control" id="input-text-title">
+                        </div>
+                        <div class="form-group" tag="listbox" style="display:none">
+                            <label for="temple-title" id="input-title" class="col-form-label">Temple Title:</label>
+                            <select class="form-control" id="select-text-control">
+                                <option>---Select---</option>
+                            </select>
+                        </div>
+                        <div class="form-group" tag="filebox" style="display:none">
+                            <label for="temple-title" id="input-title" class="col-form-label">Temple Title:</label>
+                            <input type="file" class="form-control" id="input-file-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitForm2()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
