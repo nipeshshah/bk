@@ -288,6 +288,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SearchTemple" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdolId" Type="int" Mode="In" />
+          <Parameter Name="CityId" Type="int" Mode="In" />
+          <Parameter Name="TrustId" Type="int" Mode="In" />
+          <Parameter Name="HasDshala" Type="bit" Mode="In" />
+          <Parameter Name="HasBshala" Type="bit" Mode="In" />
+        </Function>
         <EntityContainer Name="jinsasan2ModelStoreContainer">
           <EntitySet Name="Apasara" EntityType="Self.Apasara" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bhojanshala" EntityType="Self.Bhojanshala" Schema="dbo" store:Type="Tables" />
@@ -692,6 +699,13 @@
           </AssociationSet>
           <EntitySet Name="Images" EntityType="jinsasan2Model.Image" />
           <EntitySet Name="EntryRequests" EntityType="jinsasan2Model.EntryRequest" />
+          <FunctionImport Name="SearchTemple" ReturnType="Collection(jinsasan2Model.SearchTemple_Result)">
+            <Parameter Name="IdolId" Mode="In" Type="Int32" />
+            <Parameter Name="CityId" Mode="In" Type="Int32" />
+            <Parameter Name="TrustId" Mode="In" Type="Int32" />
+            <Parameter Name="HasDshala" Mode="In" Type="Boolean" />
+            <Parameter Name="HasBshala" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Image">
           <Key>
@@ -719,6 +733,14 @@
           <Property Name="Key1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Key2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="SearchTemple_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="154" />
+          <Property Type="String" Name="Moolnayak" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="HasBhojanshala" Nullable="true" />
+          <Property Type="Int32" Name="HasDharmshala" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -891,6 +913,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SearchTemple" FunctionName="jinsasan2Model.Store.SearchTemple">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="jinsasan2Model.SearchTemple_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Moolnayak" ColumnName="Moolnayak" />
+                <ScalarProperty Name="HasBhojanshala" ColumnName="HasBhojanshala" />
+                <ScalarProperty Name="HasDharmshala" ColumnName="HasDharmshala" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

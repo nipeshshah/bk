@@ -170,7 +170,7 @@ function AddMoolnayak() {
     modal.find('#textbox-control').attr('placeholder', '');
     modal.find('#listbox-header').text('Moolnayak');
     modal.find('#listbox-control').html('<option>---Select Moolnayak---</option>');
-    LoadDropdown(modal.find('#listbox-control'), "moolnayak");
+    LoadDropdown(modal.find('#listbox-control'), "idol");
     modal.find('#filebox-header').text('');
     modal.find('[tag="listbox"]').show();
     modal.modal('show');
@@ -240,7 +240,7 @@ function AddTempleOtherIdols() {
     modal.find('#textbox-control').attr('placeholder', '')
     modal.find('#listbox-header').text('Other Idol')
     modal.find('#listbox-control').html('<option>---Select Other Idol---</option>')
-    LoadDropdown(modal.find('#listbox-control'), 'moolnayak');
+    LoadDropdown(modal.find('#listbox-control'), 'idol');
     modal.find('#filebox-header').text('')
     modal.find('[tag="listbox"]').show()
     modal.modal('show')
@@ -596,14 +596,3 @@ function AddAPSContactPerson() {
     modal.modal('show')
 }
 
-function LoadDropdown(control, tag) {
-    debugger;
-    services.getService("load/" + tag, function (response) {
-        $(control);
-        var html = "";
-        response.forEach(function (item, index) {
-            html += "<option value=" + item.value + ">" + item.title + "</option>";
-        });
-        $(control).html(html);
-    });       
-}

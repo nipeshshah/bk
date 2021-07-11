@@ -9,6 +9,7 @@ namespace JSONFw.Models
     public class ResponseSearchedTemples
     {
         public int Id { get; set; }
+        public string Title { get; set; }
         public string Moolnayak { get; set; }
         public string City { get; set; }
         public int DharmshalaCount { get; set; }

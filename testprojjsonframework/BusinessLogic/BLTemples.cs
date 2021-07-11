@@ -10,19 +10,40 @@ namespace testprojjsonframework.BusinessLogic
     public class BLTemples
     {
         JSONFw.EntityClasses.jinsasan2db db = new JSONFw.EntityClasses.jinsasan2db();
-        internal List<ResponseSearchedTemples> GetSearchedTemples(string v)
+        internal List<ResponseSearchedTemples> GetSearchedTemples(RequestSearchModal searchModal)
         {
-            List<TempleTable> dbtemples = db.TempleTables.Where(t => t.Title != null).ToList();
+            var dbtemples = db.SearchTemple
+                (searchModal.IdolId, 
+                searchModal.CityId, 
+                searchModal.TrustId, 
+                searchModal.HasDshala, 
+                searchModal.HasBshala);
+                //db.TempleTables.Where(
+                //    t => t.Title != null && 
+                //    t.TempleIdolMappings.Any(x => x.IdolId == searchModal.IdolId) &&
+                //    t.TrustId == searchModal.TrustId &&
+                //    t.CityId == searchModal.CityId &&
+                //    (
+                //        (searchModal.HasBshala && t.CityMaster.Bhojanshalas.Count > 0) ||
+                //        (!searchModal.HasBshala)
+                //    ) &&
+                //    (
+                //        (searchModal.HasDshala && t.CityMaster.Dharmshalas.Count > 0) ||
+                //        (!searchModal.HasDshala)
+                //    )
+                //    );
+
             List<ResponseSearchedTemples> temples = new List<ResponseSearchedTemples>();
-            foreach(TempleTable item in dbtemples)
+            foreach(SearchTemple_Result item in dbtemples)
             {
                 temples.Add(new ResponseSearchedTemples()
                 {
                     Id = item.Id,
-                    City = item.CityMaster.Name + ", " + item.CityMaster.StateMaster.Title + ", " + item.CityMaster.StateMaster.CountryMaster.Title,
-                    Moolnayak = item.TempleIdolMappings.First().IdolMaster.Title,
-                    BhojanshalaCount = item.CityMaster.Bhojanshalas.Count,
-                    DharmshalaCount = item.CityMaster.Dharmshalas.Count
+                    Title = item.Title,
+                    City = item.City,
+                    Moolnayak = item.Moolnayak,
+                    BhojanshalaCount = item.HasBhojanshala.Value,
+                    DharmshalaCount = item.HasDharmshala.Value
                 });
             }
             return temples;
@@ -134,7 +155,8 @@ namespace testprojjsonframework.BusinessLogic
 
         internal TempleTable GetTemple(int templeid)
         {
-            return db.TempleTables.Where(t => t.Id == templeid).FirstOrDefault();
+            return db.TempleTables.Where(t => t.Id == templeid)
+                .FirstOrDefault();
         }
     }
 }

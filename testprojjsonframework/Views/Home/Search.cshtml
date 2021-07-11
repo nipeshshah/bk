@@ -6,22 +6,49 @@
 
 @section scripts
 {
-  <script>
-      $(document).ready(function () {
-          debugger;
-          services.getService("searchtps", function (response) {
-              console.log("Success"); console.log(response)
-          }, function (data) { console.log("Error"); console.log(data) })
-      });
+    <script src="~/Scripts/knockout/knockout-latest.js"></script>
+    <script src="~/Scripts/SearchScript.js"></script>
+    <script>
+        $(document).ready(function () {
+            LoadDropdown($('#select-idol'), 'idol');
+            LoadDropdown($('#select-city'), 'city');
+            LoadDropdown($('#select-trust'), 'trust');
 
-      //Search Idol/Mool based on entered characters 
-      //Search city based on entered characters
-      //Search trust based on entered characters
+            //debugger;
+            //services.postService("searchtps", JSON.stringify({}), function (response) {
+            //    ko.cleanNode($('.searchcntrl')[0]);
+            //    var srch = new SearchKoFn();
+            //    ko.applyBindings(srch, $('.searchcntrl')[0]);
+            //    srch.PopulateTemples(response);
 
-      // on change of Idol, City or Trust change load temples
-      // on click of temple, redirect to temple detail page
-      
-    </script>  
+            //}, function (data) { console.log("Error"); console.log(data) })
+        });
+
+        function Search() {
+            var data = {
+                IdolId: $('#select-idol :Selected').val(),
+                CityId: $('#select-city :Selected').val(),
+                TrustId: $('#select-trust :Selected').val(),
+                HasDshala: $('#hasDharmshala').val(),
+                HasBshala: $('#hasBhojanshala').val()
+            }
+            services.postService("searchtps", JSON.stringify(data), function (response) {
+
+                ko.cleanNode($('.searchcntrl')[0]);
+                var srch = new SearchKoFn();
+                ko.applyBindings(srch, $('.searchcntrl')[0]);
+                srch.PopulateTemples(response);
+
+            }, function (data) { console.log("Error"); console.log(data) })
+        }            //Search Idol/Mool based on entered characters
+        //Search city based on entered characters
+        //Search trust based on entered characters
+
+        // on change of Idol, City or Trust change load temples
+        // on click of temple, redirect to temple detail page
+
+
+    </script>
 }
 
 <h2>Search</h2>
@@ -32,36 +59,45 @@
         Filters
         <h5 title="Other tirthankars in the temple.">Tirthankars</h5>
         @*<select class="form-control">
-            <option>--- Select Idol Type---</option>
-            <option>Any</option>
-            <option>Tirthankar</option>
-            <option>Devi</option>
-            <option>Pagla</option>
-        </select>*@
-        <select class="form-control">
-            <option>--- Select Tirthankar ---</option>
-            <option>Mahavir Swami</option>
-            <option>Parshwanath</option>
-        </select>
-        <select class="form-control">
-            <option>--- Select City ---</option>
-            <option>Ahmedabad, Gujarat</option>
-            <option>Patan, Gujarat</option>
-        </select>
-        <select class="form-control">
-            <option>--- Select Trust ---</option>
-            <option>Jin Sasan Trust, Kadi</option>
-            <option>Patan Jain Mandal, Mumbai</option>
-        </select>
-        <input type="checkbox" value="Has Dharmshala" />Has Dharmshala<br />
-        <input type="checkbox" value="Has Dharmshala" />Has Bhojanshala
+                <option>--- Select Idol Type---</option>
+                <option>Any</option>
+                <option>Tirthankar</option>
+                <option>Devi</option>
+                <option>Pagla</option>
+            </select>*@
+        <select class="form-control" id="select-idol" onchange="Search()"></select><br />
+        <select class="form-control" id="select-city" onchange="Search()"></select><br />
+        <select class="form-control" id="select-trust" onchange="Search()"></select><br />
+        <input type="checkbox" id="hasDharmshala" onchange="Search()" />Has Dharmshala<br /><br />
+        <input type="checkbox" id="hasBhojanshala" onchange="Search()" />Has Bhojanshala<br />
+
     </div>
 
 
-    <div class="col-md-8">
-        <div class="row">
+    <div class="col-md-8 searchcntrl">
+        <div class="row" data-bind="foreach:Temples">
             <div class="card" style="width: 18rem;">
-                <div class="card-header">
+                <div class="card-header" data-bind="text: Title">
+                    Special title treatment
+                </div>
+                <div class="card-body">
+                    <img src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80" class="card-img-top" alt="...">
+                    <h6 style="text-align:center" data-bind="text:Moolnayak">Shree Ekdanta Ganesh</h6>
+                    <p class="card-text">
+                        City: <span data-bind="text:City"></span>,<br />
+                        Trust: Shree Trust,<br />
+                        Dharmshala: <span data-bind="text:HasDharmshala"></span>,<br />
+                        Bhojanshala: <span data-bind="text:HasBhojanshala"></span>,<br />
+                    </p>
+                    <div class="text-right">
+                        <a href="#" class="card-link" target="_blank">View Full Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" data-bind="text: Title">
                     Special title treatment
                 </div>
                 <div class="card-body">
@@ -75,7 +111,7 @@
                     </p>
                     <div class="text-right">
                         <a href="#" class="card-link" target="_blank">View Full Details</a>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -179,7 +215,7 @@
         <div style="background-color:lightcyan">
             <h3>Main Title</h3>
 
-        </div>
+        </div>*@
     </div>
 
 </div>

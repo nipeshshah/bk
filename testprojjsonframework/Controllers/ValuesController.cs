@@ -7,11 +7,12 @@ namespace testprojjsonframework.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+        [HttpPost]
         [Route("api/searchtps")]
-        public IHttpActionResult GetSearchedTemples()
+        public IHttpActionResult GetSearchedTemples(RequestSearchModal searchModal)
         {
             BusinessLogic.BLTemples temples = new BusinessLogic.BLTemples();
-            return Ok(temples.GetSearchedTemples(""));
+            return Ok(temples.GetSearchedTemples(searchModal));
         }
 
         [Route("api/idoltypes")]
@@ -135,7 +136,7 @@ namespace testprojjsonframework.Controllers
             {
                 dropdownlist = master.GetCities();
             }
-            else if(tag == "moolnayak")
+            else if(tag == "idol")
             {
                 dropdownlist = master.GetMoolnayaks();
             }

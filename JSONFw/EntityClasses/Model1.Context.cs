@@ -12,6 +12,8 @@ namespace JSONFw.EntityClasses
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class jinsasan2db : DbContext
     {
@@ -40,5 +42,30 @@ namespace JSONFw.EntityClasses
         public virtual DbSet<TrustMaster> TrustMasters { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<EntryRequest> EntryRequests { get; set; }
+    
+        public virtual ObjectResult<SearchTemple_Result> SearchTemple(Nullable<int> idolId, Nullable<int> cityId, Nullable<int> trustId, Nullable<bool> hasDshala, Nullable<bool> hasBshala)
+        {
+            var idolIdParameter = idolId.HasValue ?
+                new ObjectParameter("IdolId", idolId) :
+                new ObjectParameter("IdolId", typeof(int));
+    
+            var cityIdParameter = cityId.HasValue ?
+                new ObjectParameter("CityId", cityId) :
+                new ObjectParameter("CityId", typeof(int));
+    
+            var trustIdParameter = trustId.HasValue ?
+                new ObjectParameter("TrustId", trustId) :
+                new ObjectParameter("TrustId", typeof(int));
+    
+            var hasDshalaParameter = hasDshala.HasValue ?
+                new ObjectParameter("HasDshala", hasDshala) :
+                new ObjectParameter("HasDshala", typeof(bool));
+    
+            var hasBshalaParameter = hasBshala.HasValue ?
+                new ObjectParameter("HasBshala", hasBshala) :
+                new ObjectParameter("HasBshala", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SearchTemple_Result>("SearchTemple", idolIdParameter, cityIdParameter, trustIdParameter, hasDshalaParameter, hasBshalaParameter);
+        }
     }
 }
