@@ -86,11 +86,12 @@
                     <p class="card-text">
                         City: <span data-bind="text:City"></span>,<br />
                         Trust: Shree Trust,<br />
-                        Dharmshala: <span data-bind="text:HasDharmshala"></span>,<br />
-                        Bhojanshala: <span data-bind="text:HasBhojanshala"></span>,<br />
+                        Dharmshala: <span data-bind="text:(DharmshalaCount() == 0 ? 'No Dharmshala' : DharmshalaCount())"></span><br />
+                        Bhojanshala: <span data-bind="text:(BhojanshalaCount() == 0 ? 'No Bhojanshala' : BhojanshalaCount())"></span><br />
+                        Idols: <span data-bind="text:(Idols() == 0 ? 'Only Main Idol' : Idols())"></span><br />
                     </p>
                     <div class="text-right">
-                        <a href="#" class="card-link" target="_blank">View Full Details</a>
+                        <a data-bind="attr:{'href': '/home/tdetails?tirthId=' + Id()}" class="card-link" target="_blank">View Full Details</a>
                     </div>
                 </div>
             </div>

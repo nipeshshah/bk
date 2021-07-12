@@ -13,12 +13,14 @@
 
 function templeFn(item) {
     var self = this;
+    self.Id = ko.observable(item.Id);
     self.Title = ko.observable(item.Title);
     self.MoolnayakImage = ko.observable(item.MoolnayakImage);
     self.Moolnayak = ko.observable(item.Moolnayak);
     self.City = ko.observable(item.City);
     self.Trust = ko.observable(item.Trust);
-    self.Dharmshala = ko.observable(item.HasDharmshala)
-    self.Bhojanshala = ko.observable(item.HasBhojanshala);
+    self.BhojanshalaCount = ko.observable(item.BhojanshalaCount);
+    self.DharmshalaCount = ko.observable(item.DharmshalaCount);
+    self.Idols = ko.observable(item.Idols);
     return self;
 }
